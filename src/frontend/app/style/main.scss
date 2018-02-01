@@ -1,0 +1,40 @@
+@import '~global/colours';
+html {
+    height: 100%;
+    background-color: $colour-violet;
+    background-image: url('~img/overlay.png'), linear-gradient(54deg, map-get($colour-background, primary) 0%, map-get($colour-background, secondary) 75%);
+}
+
+html,
+body {
+    height: 100%;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    left: 0;
+    top: 0;
+    font-size: 100%;
+    display: flex;
+}
+
+* {
+    outline: none;
+}
+
+ul {
+    list-style-type: none;
+}
+
+ui-view {
+    height: 100%;
+    width: 100%;
+}
+
+a {
+    text-decoration: none;
+}
+
+@import './imports/inputs';
+@import './imports/buttons';
+@import './imports/tables';
+@import '~global/loader';

@@ -1,0 +1,47 @@
+@import '~global/colours';
+#home-container {
+    height: inherit;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    align-items: center;
+    align-content: center;
+    justify-content: center;
+    #home-content {
+        background-color: $colour-white;
+        padding: 1em;
+        border-radius: 5px;
+        max-width: 40em;
+        h1,
+        h2 {
+            font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+        }
+        h1 {
+            color: $colour-pink;
+        }
+        h2 {
+            color: $colour-violet;
+        }
+        #home-add-task-row {
+            display: flex;
+            flex-direction: row;
+            flex-wrap: nowrap;
+            align-items: center;
+            align-content: center;
+            justify-content: space-between;
+            .my-input {
+                width: 100%;
+                padding: 1em 0;
+            }
+            .my-btn {
+                margin: auto 2em;
+            }
+        }
+        #home-info {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin-top: 5em;
+            font-size: 12px;
+            color: $colour-violet
+        }
+    }
+}

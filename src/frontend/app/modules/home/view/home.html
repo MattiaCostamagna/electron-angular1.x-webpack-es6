@@ -1,0 +1,37 @@
+<div id="home-container">
+    <div id="home-content">
+        <h1>{{ home.title }}</h1>
+        <h2>Test this application by enetring some tasks below:</h2>
+        <div id="home-add-task-row">
+            <div class="my-input">
+                <input id="my-input-text-taskname" type="text" ng-model="home.newTask" />
+                <label for="my-input-text-taskname">Add a task</label>
+            </div>
+            <button class="my-btn violet" ng-click="home.addTask()">Confirm</button>
+        </div>
+        <table ng-show="home.tasks.length > 0">
+            <thead>
+                <tr>
+                    <td>Id</td>
+                    <td>Name</td>
+                    <td>Date added</td>
+                    <td>Done</td>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="task in home.tasks track by $index">
+                    <td>{{ task.id }}</td>
+                    <td>{{ task.desc }}</td>
+                    <td>{{ task.date }}</td>
+                    <td>
+                        <div class="my-input">
+                            <input id="my-input-checkradio-done-{{ $index }}" type="checkbox" ng-model="home.tasks[$index].done" />
+                            <label for="my-input-checkradio-done-{{ $index }}"></label>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <p id="home-info">Be sure to read the README.md file, and if you have any question, please contact me :)</p>
+    </div>
+</div>

@@ -1,0 +1,4 @@
+{
+    "presets": ["electron"],
+    "plugins": ["angularjs-annotate"]
+}

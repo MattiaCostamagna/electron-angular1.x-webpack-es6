@@ -1,0 +1,52 @@
+{
+  "name": "electron-angular1.x-webpack-es6",
+  "version": "1.0.0",
+  "description": "A startup project for an electron application using AngularJS 1.x",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron ./dist/main.js",
+    "webpack-dev": "webpack --config webpack.config.js",
+    "webpack-prd": "rm -r dist && NODE_ENV=production && webpack --config webpack.config.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/MattiaCostamagna/electron-angular1.x-webpack-es6"
+  },
+  "keywords": [
+    "electron",
+    "angular",
+    "es6",
+    "webpack"
+  ],
+  "author": {
+    "email": "costamagnamatt@gmail.com",
+    "name": "Mattia Costamagna"
+  },
+  "license": "MIT",
+  "homepage": "https://github.com/MattiaCostamagna/electron-angular1.x-webpack-es6/blob/master/README.md",
+  "devDependencies": {
+    "@uirouter/angularjs": "^1.0.14",
+    "angular": "^1.6.8",
+    "angular-animate": "^1.6.8",
+    "aws-sdk": "^2.188.0",
+    "babel-core": "^6.26.0",
+    "babel-loader": "^7.1.2",
+    "babel-minify-webpack-plugin": "^0.2.0",
+    "babel-plugin-angularjs-annotate": "^0.8.2",
+    "babel-preset-electron": "^1.4.15",
+    "css-loader": "^0.28.9",
+    "electron": "^1.7.12",
+    "file-loader": "^1.1.6",
+    "grunt": "^1.0.1",
+    "grunt-contrib-htmlmin": "^2.4.0",
+    "grunt-contrib-watch": "^1.0.0",
+    "grunt-exec": "^3.0.0",
+    "node-sass": "^4.7.2",
+    "postcss-loader": "^2.0.10",
+    "raw-loader": "^0.5.1",
+    "sass-loader": "^6.0.6",
+    "style-loader": "^0.20.1",
+    "url-loader": "^0.6.2",
+    "webpack": "^3.10.0"
+  }
+}

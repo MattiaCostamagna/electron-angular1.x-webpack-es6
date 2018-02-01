@@ -1,0 +1,102 @@
+.my-input {
+    text-align: left;
+    display: flex;
+    flex-direction: column-reverse;
+    label[for^=my-input-text-] {
+        display: block;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        font-weight: lighter;
+        font-size: .9em;
+        color: map-get($map: $colour-gray, $key: dark);
+        margin-bottom: -.5em;
+    }
+    input[type=text] {
+        width: 100%;
+        border: 0;
+        border-bottom: 1px solid map-get($map: $colour-gray, $key: light);
+        height: 2em;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        font-weight: lighter;
+        &:focus {
+            border-bottom: 1px solid transparent;
+            border-image: linear-gradient(90deg, map-get($colour-background, secondary) 5%, map-get($colour-background, primary) 140%);
+            border-image-slice: 1;
+            &+label {
+                background: -webkit-linear-gradient(0deg, map-get($colour-background, secondary) 5%, map-get($colour-background, primary) 140%);
+                -webkit-background-clip: text;
+                background-clip: text;
+                -webkit-text-fill-color: transparent;
+            }
+        }
+    }
+    input[type=checkbox],
+    input[type=radio] {
+        display: none;
+    }
+    label[for^=my-input-checkradio-] {
+        position: relative;
+        display: inline-block;
+        padding: 0 0 0 2em;
+        height: 1em;
+        line-height: 1;
+        cursor: pointer;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        font-weight: lighter;
+    }
+    label[for^=my-input-checkradio-] {
+        &::before,
+        &::after {
+            position: absolute;
+            top: 0;
+            left: 0;
+            display: block;
+            width: 1em;
+            height: 1em;
+        }
+        &::before {
+            content: ' ';
+            border: 2px solid #bdc3c7;
+            border-radius: 20%;
+        }
+    }
+    /* Checkbox */
+    input[type=checkbox]+label[for^=my-input-checkradio-]::after {
+        content: '\2714';
+        color: $colour-pink;
+        line-height: 1;
+        text-align: center;
+    }
+    /* Radio */
+    input[type=radio]+label[for^=my-input-checkradio-]::before {
+        border-radius: 50%;
+    }
+    input[type=radio]+label[for^=my-input-checkradio-]::after {
+        content: ' ';
+        top: .25em;
+        left: .25em;
+        width: 1em;
+        height: 1em;
+        background: $colour-white;
+        border: .2em solid #2c3e50;
+        border-radius: 50%;
+    }
+    /* :checked */
+    input[type=checkbox]:checked+label[for^=my-input-checkradio-]::before,
+    input[type=radio]:checked+label[for^=my-input-checkradio-]::before {
+        background: $colour-white;
+        border-color: $colour-white;
+    }
+    input[type=checkbox]+label[for^=my-input-checkradio-]::after,
+    input[type=radio]+label[for^=my-input-checkradio-]::after {
+        transform: scale(0);
+    }
+    input[type=checkbox]:checked+label[for^=my-input-checkradio-]::after,
+    input[type=radio]:checked+label[for^=my-input-checkradio-]::after {
+        transform: scale(1);
+    }
+    /* Transition */
+    label[for^=my-input-checkradio-]::before,
+    label[for^=my-input-checkradio-]::after {
+        transition: .25s all ease;
+    }
+}

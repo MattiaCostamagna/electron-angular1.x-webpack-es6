@@ -1,0 +1,110 @@
+$loader-radius: .75em;
+$loader-iteration-duration: 400ms;
+$loader-cycle-duration: 1000ms;
+$loader-width: $loader-radius * 4;
+$loader-delay-unit: $loader-cycle-duration/6;
+$loader-startTime: 100% - percentage($loader-iteration-duration/$loader-cycle-duration);
+$loader-halfTime: 100% - percentage(($loader-iteration-duration*.5)/$loader-cycle-duration);
+.loader {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) rotate(90deg);
+    width: $loader-width;
+}
+
+.loader,
+.loader div {
+    transform-origin: 50% 50%;
+}
+
+.loader div {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+}
+
+.loader:before,
+.loader:after,
+.loader div:before,
+.loader div:after {
+    animation-duration: $loader-cycle-duration;
+    animation-iteration-count: infinite;
+    content: "";
+    background: $colour-white;
+    border-radius: 100%;
+    width: $loader-radius;
+    height: $loader-radius;
+    position: absolute;
+}
+
+.loader:before,
+.loader div:before {
+    animation-name: orbBounceBefore;
+    top: -$loader-radius *.5;
+    left: -$loader-radius *.5;
+}
+
+.loader:after,
+.loader div:after {
+    animation-name: orbBounceAfter;
+    top: -$loader-radius *.5;
+    right: -$loader-radius *.5;
+}
+
+.loader-a {
+    transform: rotate(60deg) translateY(0);
+}
+
+.loader-b {
+    transform: rotate(120deg) translateY(0);
+}
+
+@keyframes orbBounceBefore {
+    #{$loader-startTime} {
+        transform: translateX(0);
+        animation-timing-function: cubic-bezier(0.55, 0.085, 0.68, 0.53);
+    }
+    #{$loader-halfTime} {
+        animation-timing-function: cubic-bezier(0, 1.11, .7, 1.43);
+        transform: translateX(-100%);
+    }
+    100% {
+        transform: translateX(0);
+    }
+}
+
+@keyframes orbBounceAfter {
+    #{$loader-startTime} {
+        animation-timing-function: cubic-bezier(0.55, 0.085, 0.68, 0.53);
+        transform: translateX(0);
+    }
+    #{$loader-halfTime} {
+        animation-timing-function: cubic-bezier(0, 1.11, .7, 1.43);
+        transform: translateX(100%);
+    }
+    100% {
+        transform: translateX(0);
+    }
+}
+
+.loader-a:before {
+    animation-delay: $loader-delay-unit;
+}
+
+.loader-b:before {
+    animation-delay: $loader-delay-unit * 2;
+}
+
+.loader:after {
+    animation-delay: $loader-delay-unit * 3;
+}
+
+.loader-a:after {
+    animation-delay: $loader-delay-unit * 4;
+}
+
+.loader-b:after {
+    animation-delay: $loader-delay-unit * 5;
+}

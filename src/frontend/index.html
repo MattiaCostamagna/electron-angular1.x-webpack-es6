@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html ng-app="my-app" ng-strict-di lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Hello world!</title>
+    <link rel="icon" type="image/png" href="images/favicon.png" />
+</head>
+
+<body>
+    <div class="loader" ng-show="loadingView">
+        <div class="loader-a"></div>
+        <div class="loader-b"></div>
+    </div>
+    <ui-view ng-hide="loadingView" ng-cloak=""></ui-view>
+    <script src="renderer.js"></script>
+</body>
+
+</html>
