@@ -43,4 +43,5 @@ module.exports = function (grunt) {
 
     grunt.registerTask('dev', ['exec:webpack_dev', 'htmlmin']);
     grunt.registerTask('prd', ['exec:webpack_prd', 'htmlmin']);
+    grunt.registerTask('default', ['exec:webpack_prd', 'htmlmin']);
 };
